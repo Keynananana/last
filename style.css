@@ -1,0 +1,361 @@
+/* ==================== GLOBAL ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0f2027;
+  color: white;
+  transition: opacity 0.5s ease;
+}
+
+body.fade { opacity: 0; }
+body.fade.show { opacity: 1; }
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+  position: fixed;
+  top: 0; /* biar nempel atas */
+  left: 0;
+  right: 0;
+  padding: 15px 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 100;
+
+  background: rgba(15, 32, 39, 0.7); /* transparan dikit */
+  backdrop-filter: blur(10px); /* efek kaca */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* garis tipis */
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  margin-left: 30px; /* tadinya 20 → biar agak ke tengah */
+  font-size: 1.1rem; /* BESARIN dikit */
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #00d9ff;
+}
+
+/* ==================== PAGE ==================== */
+.page {
+  padding: 180px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page .title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* ==================== CONTENT ==================== */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  max-width: 1100px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.text {
+  max-width: 500px;
+}
+
+.text h1 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.text p {
+  margin-bottom: 20px; /* FIX JARAK */
+  line-height: 1.5;
+}
+
+.text .btn {
+  margin-top: 30px; /* FIX TOMBOL */
+}
+
+.highlight { color: #00d9ff; }
+
+.quote {
+  font-style: italic;
+  color: #00d9ff;
+}
+
+/* ==================== IMAGE ==================== */
+.image img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 4px solid #00d9ff;
+  object-fit: cover;
+  box-shadow: 0 0 18px rgba(0, 217, 255, 0.5);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+
+/* ==================== BUTTON ==================== */
+.btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #00d9ff;
+  color: #0f2027;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #02bce0;
+}
+
+/* ==================== ABOUT ==================== */
+.about-page .content {
+  gap: 100px;
+}
+
+/* ==================== MUSIC ==================== */
+
+.music-section .title {
+  font-size: 1.5rem; /* kecilin dari 2rem */
+  margin-bottom: 35px;
+}
+
+.music-section {
+  margin-top: 80px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.music-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.row iframe {
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* ==================== PLAYLIST ==================== */
+.playlist-box {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.playlist-box a {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #00d9ff;
+  color: #0f2027;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ==================== CERTIFICATE ==================== */
+.cert-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+}
+
+.certificate-item img {
+  width: 100%;
+  border-radius: 12px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.certificate-item img:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.certificate-page .title {
+  margin-bottom: 50px;
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80vh;
+  border-radius: 12px;
+  animation: zoom 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ==================== CONTACT ==================== */
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-box {
+  background: rgba(255,255,255,0.05);
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 217, 255, 0.2);
+}
+
+.contact-box h2 {
+  margin-bottom: 15px;
+}
+
+.contact-box p {
+  margin-bottom: 10px;
+}
+
+.contact-list {
+  margin-top: 15px;
+}
+
+.contact-item {
+  background: rgba(255,255,255,0.07);
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.contact-item i {
+  font-size: 1.6rem;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+  background: rgba(0,217,255,0.15);
+  box-shadow: 0 0 15px rgba(0,217,255,0.3);
+  color: #00d9ff;
+}
+
+/* ==================== SCROLL BOUNCE ==================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(80px) scale(0.9);
+}
+
+.reveal.active {
+  animation: bounceUp 0.8s ease forwards;
+}
+
+@keyframes bounceUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.03);
+  }
+  80% {
+    transform: translateY(5px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==================== SCROLL ANIMATION ==================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.9);
+  transition: all 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: bounceIn 0.6s ease;
+}
+
+/* delay biar satu-satu */
+.reveal:nth-child(1) { transition-delay: 0.1s; }
+.reveal:nth-child(2) { transition-delay: 0.3s; }
+.reveal:nth-child(3) { transition-delay: 0.5s; }
+.reveal:nth-child(4) { transition-delay: 0.7s; }
+.reveal:nth-child(5) { transition-delay: 0.9s; }
+
+/* efek mantul */
+@keyframes bounceIn {
+  0%   { transform: translateY(80px) scale(0.8); }
+  60%  { transform: translateY(-10px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
